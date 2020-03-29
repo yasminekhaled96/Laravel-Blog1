@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyPostsTable extends Migration
+class AddUserIdColumnToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class ModifyPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('Title', 100);	
-            $table->text('description');
-            
+             $table->unsignedBigInteger('user_id')->nullable();
+
         });
     }
 

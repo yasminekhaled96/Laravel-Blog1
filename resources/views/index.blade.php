@@ -34,8 +34,8 @@
                 <tr>
                 <th scope="row">{{ $post['id'] }}</th>
                   <td>{{ $post['Title'] }}</td>
-                  <td>{{ $post['PostedBy'] }}</td>
-                  <td>{{ $post['created_at'] }}</td>
+                  <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
+                  <td>{{ $post['created_at']->format('d-m-y') }}</td>
 
                 <td><a href="/posts/{{$post->id}}" class="btn btn-primary btn-sm">View </a></td>
                 </tr>

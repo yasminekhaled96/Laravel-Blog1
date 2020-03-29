@@ -23,12 +23,10 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Posted By</label>
-    <select class="form-control" name="PostedBy" id="exampleFormControlSelect1">
-      <option>yasmine</option>
-      <option>mayar</option>
-      <option>manar</option>
-      <option>marwa</option>
-     
+    <select class="form-control" name="user_id" id="exampleFormControlSelect1">
+     @foreach($users as $user)
+      <option value="{{$user->id}}">{{$user->name}}</option>
+     @endforeach
     </select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
