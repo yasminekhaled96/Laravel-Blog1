@@ -36,8 +36,16 @@
                   <td>{{ $post['Title'] }}</td>
                   <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
                   <td>{{ $post['created_at']->format('d-m-y') }}</td>
+                <td>
+                <a href="/posts/{{$post->id}}" class="btn btn-primary " >View</a>
+                <a href="#" class="btn btn-success "  >Edit</a>
 
-                <td><a href="/posts/{{$post->id}}" class="btn btn-primary btn-sm">View </a></td>
+                <form method="POST" action="/posts/{{$post->id}}/delete">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Do you really want to delete this post?')" role="button" aria-pressed="true">Delete</a>
+                </form>
+                </td>
                 </tr>
               @endforeach
               </tbody>

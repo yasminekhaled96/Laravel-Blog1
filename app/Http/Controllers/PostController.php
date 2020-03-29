@@ -44,4 +44,12 @@ class PostController extends Controller
         ]);
         return redirect('/posts');
     }
+
+    public function destroy()
+    {
+        $request=request();
+        $postid= $request->post;
+        Post::find($postid)->delete();
+        return redirect('/posts');
+    }
 }
