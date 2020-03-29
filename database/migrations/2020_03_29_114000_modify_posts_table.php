@@ -15,8 +15,10 @@ class ModifyPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->string('Title', 100);	
-            $table->string('Posted By', 100);	
-           
+            $table->string('Posted By', 100);
+            $table->text('description');
+            $table->text('Email');	
+            $table->date('created_at');	
         });
     }
 
