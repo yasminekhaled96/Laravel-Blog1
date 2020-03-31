@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
@@ -32,18 +32,9 @@ class PostController extends Controller
             'users'=>$users
         ]);
     }
-    public function store()
+    public function store(StorePostRequest $request)
     {
-        
-        $request=request();
        
-       //validate the data
-       
-        $validatedData = $request->validate([
-        'title' => 'required|unique:posts|max:3',
-        'description' => 'required',
-    ]);
-
         Post::create([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -74,10 +65,9 @@ class PostController extends Controller
         ]);
 }
 
-public function update()
+public function update(StorePostRequest $request)
 {   
     $users=User::all();
-    $request=request();
     $postid= $request->post;
     $post=Post::find($postid);
     
