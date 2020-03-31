@@ -3,7 +3,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Posts</h2>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">ITI Blog</a>
