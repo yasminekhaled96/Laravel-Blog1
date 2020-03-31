@@ -11,26 +11,16 @@
     </ul>
   </div>
 </nav>
-
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<form method="POST" action="/posts">
- @csrf
+<form method="POST" action="/posts/{post}">
+@method('PUT')
+@csrf
   <div class="form-group">
     <label for="exampleInputEmail1">Title</label>
-    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="title" class="form-control" id="exampleInputEmail1" value="{{ $post['Title'] }}" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <input type="textarea" name="description" class="form-control" id="exampleInputPassword1">
+    <input type="textarea" name="description" value="{{ $post['description'] }}"class="form-control" id="exampleInputPassword1">
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Posted By</label>
@@ -40,7 +30,7 @@
      @endforeach
     </select>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
 

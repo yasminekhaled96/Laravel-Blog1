@@ -20,4 +20,6 @@ Route::get('/posts','PostController@index');
 Route::get('/posts/create','PostController@create');
 Route::post('/posts','PostController@store');
 Route::get('/posts/{post}','PostController@show');
+Route::get('/posts/{post}/edit','PostController@edit');
+Route::put('/posts/{post}','PostController@update');
 Route::delete('/posts/{post}/delete','PostController@destroy');

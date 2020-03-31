@@ -36,6 +36,14 @@ class PostController extends Controller
     {
         
         $request=request();
+       
+       //validate the data
+       
+        $validatedData = $request->validate([
+        'title' => 'required|unique:posts|max:3',
+        'description' => 'required',
+    ]);
+
         Post::create([
             'title'=> $request->title,
             'description'=> $request->description,
@@ -52,4 +60,31 @@ class PostController extends Controller
         Post::find($postid)->delete();
         return redirect('/posts');
     }
+
+    public function edit()
+{    $users=User::all();
+    $request=request();
+        $postid= $request->post;
+
+        $post=Post::find($postid);
+        
+        return view('edit',[
+            'post'=>$post,
+            'users'=>$users,
+        ]);
+}
+
+public function update()
+{   
+    $users=User::all();
+    $request=request();
+    $postid= $request->post;
+    $post=Post::find($postid);
+    
+       $post->Title = $request->title;
+        $post->description = $request->description;
+        $post->user_id= $request->user_id;
+        $post->save();
+    return redirect('/posts');
+}
 }
