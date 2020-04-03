@@ -24,6 +24,7 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Title</th>
+      
       <th scope="col">Posted By</th>
       <th scope="col">Created At</th>
       <th scope="col">Actions</th>
@@ -34,6 +35,7 @@
                 <tr>
                 <th scope="row">{{ $post['id'] }}</th>
                   <td>{{ $post['Title'] }}</td>
+                
                   <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
                   <td>{{ $post['created_at']->format('d-m-y') }}</td>
                 <td>
