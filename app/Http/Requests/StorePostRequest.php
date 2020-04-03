@@ -27,6 +27,7 @@ class StorePostRequest extends FormRequest
            
             'title' => 'required|unique:posts,Title|min:3',
             'description' => 'required|min:10',
+            'user_id'=>'exists:posts',
             
             
         ];
@@ -35,7 +36,7 @@ class StorePostRequest extends FormRequest
         return [
             'title.min' => 'The minimum length for title is 3 characters',
             'description.min' => 'The minimum length for title is 10 characters',
-            'id.exists'=>'This post does not exist',
+            'user_id.exists'=>'This post does not exist',
         ];
     }
 }
