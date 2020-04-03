@@ -20,19 +20,19 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
-   // use Sluggable;
+   use Sluggable;
 
     /**
      * Return the sluggable configuration array for this model.
      *
      * @return array
      */
-    // public function sluggable()
-    // {
-    //     return [
-    //         'slug' => [
-    //             'source' => 'Title'
-    //         ]
-    //     ];
-    // }
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'Title'
+            ]
+        ];
+    }
 }
